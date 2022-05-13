@@ -1,7 +1,18 @@
 
-// Java program to find the shortest
-// path between any two nodes using
-// Floyd Warshall Algorithm.
+/******************************************************************
+* 
+* Authors: Astrid Glauser, Abner Garcia, Gonzalo Santizo, Arturo Argueta
+* Fecha de edicion 5-13-22
+* 
+* This is the main part of the program and will control the user inputs
+* 
+******************************************************************/
+
+/******************************************************************
+ * 
+ * Java program to find the shortest path between 2 different cities
+ * 
+ ******************************************************************/
 import java.util.*;
 import java.util.Scanner;
 
@@ -9,14 +20,17 @@ class Main {
 
     static final int MAXN = 100;
 
-    // Infinite value for array
+    // Big number to act as inf
     static int INF = (int) 1e7;
 
     static int[][] dis = new int[MAXN][MAXN];
     static int[][] Next = new int[MAXN][MAXN];
 
-    // Initializing the distance and
-    // Next array
+    /******************************************************************
+     * 
+     * Function to start the algorithm and next array
+     * 
+     ******************************************************************/
     static void initialise(int V,
             int[][] graph) {
         for (int i = 0; i < V; i++) {
@@ -33,14 +47,20 @@ class Main {
         }
     }
 
-    // Function construct the shortest
-    // path between u and v
+    /******************************************************************
+     * 
+     * Here we find the shortest path between U and V
+     * 
+     ******************************************************************/
+
     static Vector<Integer> constructPath(int u,
             int v) {
 
-        // If there's no path between
-        // node u and v, simply return
-        // an empty array
+        /******************************************************************
+         * 
+         * if there is no path between U and V we return an empty array
+         * 
+         ******************************************************************/
         if (Next[u][v] == -1)
             return null;
 
@@ -55,10 +75,15 @@ class Main {
         return path;
     }
 
-    // Standard Floyd Warshall Algorithm
-    // with little modification Now if we find
-    // that dis[i][j] > dis[i][k] + dis[k][j]
-    // then we modify next[i][j] = next[i][k]
+    /******************************************************************
+     * 
+     * Implementation of Floyd warshall Algorith
+     *
+     * dis[i][j] > dis[i][k] + dis[k][j]
+     * next[i][j] = next[i][k]
+     * 
+     ******************************************************************/
+
     static void floydWarshall(int V) {
         for (int k = 0; k < V; k++) {
             for (int i = 0; i < V; i++) {
@@ -81,7 +106,7 @@ class Main {
         }
     }
 
-    // Print the shortest path
+    // Function to print shortest path
     static void printPath(Vector<Integer> path) {
         int n = path.size();
         for (int i = 0; i < n - 1; i++)
@@ -89,7 +114,7 @@ class Main {
         System.out.print(path.get(n - 1) + "\n");
     }
 
-    // Driver code
+    // Main Code
     public static void main(String[] args) {
         int V = 5;
         int[][] graph = { { 0, 30, INF, INF, 15 },
