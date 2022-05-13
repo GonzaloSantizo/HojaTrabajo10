@@ -111,6 +111,7 @@ class Main {
         Scanner scan = new Scanner(System.in);
 
         int opcion = 0;
+        View Vista = new View();
 
         while (opcion != 4) {
 
@@ -129,20 +130,12 @@ class Main {
                 int Destination;
 
                 System.out.println("\nEnter origen City (just the number):");
-                System.out.println("0. Mixco:");
-                System.out.println("1. Antigua: ");
-                System.out.println("2. Escuintla: ");
-                System.out.println("3. Santa Lucia: ");
-                System.out.println("4. Guatemala: ");
+                Vista.PrintCities();
 
                 Origen = scan.nextInt();
 
-                System.out.println("\n\nEnter origen City (just the number):");
-                System.out.println("0. Mixco:");
-                System.out.println("1. Antigua: ");
-                System.out.println("2. Escuintla: ");
-                System.out.println("3. Santa Lucia: ");
-                System.out.println("4. Guatemala: ");
+                System.out.println("\nEnter destination City (just the number):");
+                Vista.PrintCities();
 
                 Destination = scan.nextInt();
 
@@ -154,6 +147,14 @@ class Main {
                 // Show center of graph
             } else if (opcion == 3) {
                 // Modify current graph
+
+                scan = new Scanner(System.in);
+
+                Int ChangeGraph;
+
+                Vista.PrintCities();
+                ChangeGraph = scan.nextInt();
+
             } else if (opcion == 4) {
                 // Exit
             }
