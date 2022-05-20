@@ -114,7 +114,7 @@ class Main {
         System.out.print(path.get(n - 1) + "\n");
     }
 
-    // Main Code
+    // Driver code
     public static void main(String[] args) {
         int V = 5;
         int[][] graph = { { 0, 30, INF, INF, 15 },
@@ -173,12 +173,6 @@ class Main {
             } else if (opcion == 3) {
                 // Modify current graph
 
-                scan = new Scanner(System.in);
-
-                Int ChangeGraph;
-
-                Vista.PrintCities();
-                ChangeGraph = scan.nextInt();
 
             } else if (opcion == 4) {
                 // Exit
